@@ -1,0 +1,31 @@
+[package]
+name = "libde265-sys"
+version = "0.1.0"
+edition = "2021"
+description = "Low-level bindings for libdeH265."
+authors = ["Andrey Tkachenko <andrey@aidev.ru>"]
+keywords = ["multimedia", "encoding", "video"]
+categories = ["api-bindings", "multimedia::video"]
+documentation = "https://docs.rs/libde265-sys/"
+repository = "https://github.com/andreytkachenko/libde265-rust"
+license = "MIT OR Apache-2.0"
+build = "build.rs"
+
+[features]
+default = ["system"]
+static = []
+system = []
+generate-bindings = []
+encoder = []
+
+[dependencies]
+
+[build-dependencies]
+anyhow = "1.0.79"
+curl = "0.4.44"
+bindgen = "0.69.2"
+cc = "1.0.83"
+walkdir = "2.4.0"
+const_format = "0.2.32"
+flate2 = "1.0.28"
+tar = "0.4.40"

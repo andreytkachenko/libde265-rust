@@ -1,0 +1,17 @@
+[package]
+name = "libde265"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = ["static"]
+encoder = ["libde265-sys/encoder"]
+static = ["libde265-sys/static"]
+system = ["libde265-sys/system"]
+
+
+[dependencies]
+libde265-sys = { path = "./libde265-sys" }
+log = "0.4.20"
+thiserror = "1.0.56"
+
