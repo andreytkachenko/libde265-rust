@@ -235,6 +235,8 @@ dependencies = [
 [[package]]
 name = "libde265-sys"
 version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1796f54e5dedc6cfbb8b54897a4d11afc19478cd7151f5f7372460d6697de726"
 dependencies = [
  "anyhow",
  "bindgen",
