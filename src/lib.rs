@@ -55,36 +55,6 @@ impl TryFrom<libde265_sys::de265_image_format::Type> for ImageFormat {
     }
 }
 
-// #[repr(C)]
-// #[derive(Debug, Copy, Clone)]
-// pub struct de265_image_allocation {
-//     pub get_buffer: ::std::option::Option<
-//         unsafe extern "C" fn(
-//             ctx: *mut de265_decoder_context,
-//             spec: *mut de265_image_spec,
-//             img: *mut de265_image,
-//             userdata: *mut ::std::os::raw::c_void,
-//         ) -> ::std::os::raw::c_int,
-//     >,
-//     pub release_buffer: ::std::option::Option<
-//         unsafe extern "C" fn(
-//             ctx: *mut de265_decoder_context,
-//             img: *mut de265_image,
-//             userdata: *mut ::std::os::raw::c_void,
-//         ),
-//     >,
-// }
-// extern "C" {
-//     pub fn de265_set_image_allocation_functions(
-//         arg1: *mut de265_decoder_context,
-//         arg2: *mut de265_image_allocation,
-//         userdata: *mut ::std::os::raw::c_void,
-//     );
-// }
-// extern "C" {
-//     pub fn de265_get_default_image_allocation_functions() -> *const de265_image_allocation;
-// }
-
 // pub const de265_param_DE265_DECODER_PARAM_BOOL_SEI_CHECK_HASH: de265_param = 0;
 // pub const de265_param_DE265_DECODER_PARAM_DUMP_SPS_HEADERS: de265_param = 1;
 // pub const de265_param_DE265_DECODER_PARAM_DUMP_VPS_HEADERS: de265_param = 2;
