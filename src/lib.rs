@@ -10,7 +10,9 @@ pub use decoder::Decoder;
 
 #[cfg(encoder)]
 pub use encoder::Encoder;
+
 pub use error::Error;
+pub use image::Image;
 
 #[derive(Debug, Clone, Copy)]
 pub enum ChromaFormat {
@@ -114,19 +116,19 @@ impl De265 {
         version.to_str().unwrap()
     }
 
-    pub fn de265_get_version_number(&self) -> u32 {
+    pub fn get_version_number(&self) -> u32 {
         unsafe { libde265_sys::de265_get_version_number() }
     }
 
-    pub fn de265_get_version_number_major(&self) -> i32 {
+    pub fn get_version_number_major(&self) -> i32 {
         unsafe { libde265_sys::de265_get_version_number_major() }
     }
 
-    pub fn de265_get_version_number_minor(&self) -> i32 {
+    pub fn get_version_number_minor(&self) -> i32 {
         unsafe { libde265_sys::de265_get_version_number_minor() }
     }
 
-    pub fn de265_get_version_number_maintenance(&self) -> i32 {
+    pub fn get_version_number_maintenance(&self) -> i32 {
         unsafe { libde265_sys::de265_get_version_number_maintenance() }
     }
 
@@ -134,7 +136,7 @@ impl De265 {
         unsafe { libde265_sys::de265_disable_logging() };
     }
 
-    pub fn de265_set_verbosity(&self, level: i32) {
+    pub fn set_verbosity(&self, level: i32) {
         unsafe { libde265_sys::de265_set_verbosity(level) };
     }
 }
