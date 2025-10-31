@@ -1,7 +1,7 @@
 [package]
 name = "libde265-static"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 description = "Statically built libdeH265. See libde265-sys"
 authors = ["Andrey Tkachenko <andrey@aidev.ru>", "Axel Karjalainen <axel@axka.fi>"]
 keywords = ["multimedia", "encoding", "video"]
@@ -11,18 +11,16 @@ repository = "https://github.com/andreytkachenko/libde265-rust"
 license = "MIT OR Apache-2.0"
 build = "build.rs"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [features]
 generate-bindings = []
 encoder = []
 
 [build-dependencies]
-anyhow = "1.0.79"
-curl = "0.4.44"
-bindgen = "0.69.2"
-cc = "1.0.83"
-walkdir = "2.4.0"
-const_format = "0.2.32"
-flate2 = "1.0.28"
-tar = "0.4.40"
+anyhow = "1.0"
+curl = "0.4"
+bindgen = "0.72"
+cc = "1.0"
+walkdir = "2.5"
+const_format = "0.2"
+flate2 = "1.0"
+tar = "0.4"

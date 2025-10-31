@@ -69,7 +69,7 @@ impl Image {
     }
 
     #[inline]
-    pub fn get_image_plane_user_data_mut(&self, channel: i32) -> Option<&mut dyn Any> {
+    pub fn get_image_plane_user_data_mut(&mut self, channel: i32) -> Option<&mut dyn Any> {
         let user_data =
             unsafe { libde265_sys::de265_get_image_plane_user_data(self.inner, channel) };
 

@@ -1,5 +1,5 @@
 mod decoder;
-#[cfg(encoder)]
+#[cfg(feature = "encoder")]
 mod encoder;
 mod error;
 mod image;
@@ -8,7 +8,7 @@ use std::{ffi::CStr, sync::Arc};
 
 pub use decoder::Decoder;
 
-#[cfg(encoder)]
+#[cfg(feature = "encoder")]
 pub use encoder::Encoder;
 
 pub use error::Error;

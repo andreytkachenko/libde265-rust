@@ -78,7 +78,7 @@ fn compile_and_add_libde265_static_lib(root: &Path, libname: &str, encoder: bool
     );
 
     cc_build
-        .include(&root)
+        .include(root)
         .include(&libde265_src)
         .cpp(true)
         .warnings(false)
@@ -110,7 +110,7 @@ fn generate_bindings(root: &Path) -> anyhow::Result<()> {
 }
 
 // This builds libde265 from sources
-fn build() -> anyhow::Result<()> {
+fn main() -> anyhow::Result<()> {
     let encoder = feature_enabled("encoder");
     let out_path = PathBuf::from(env::var("OUT_DIR")?);
     let libname = format!("libde265{}", if encoder { "_en" } else { "" });
