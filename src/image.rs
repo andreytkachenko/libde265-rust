@@ -1,4 +1,4 @@
-use std::any::Any;
+use std::{any::Any, marker::PhantomData};
 
 use crate::ChromaFormat;
 
@@ -17,11 +17,12 @@ use crate::ChromaFormat;
 //     pub visible_height: ::std::os::raw::c_int,
 // }
 
-pub struct Image {
+pub struct Image<'a> {
     pub(crate) inner: *const libde265_sys::de265_image,
+    pub(crate) _m: PhantomData<&'a ()>,
 }
 
-impl Image {
+impl<'a> Image<'a> {
     #[inline]
     pub fn get_image_width(&self, channel: i32) -> u32 {
         unsafe { libde265_sys::de265_get_image_width(self.inner, channel) as u32 }
