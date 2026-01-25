@@ -1,8 +1,8 @@
-use std::{any::Any, ffi::c_int, sync::Arc};
+use std::{any::Any, ffi::c_int, marker::PhantomData, sync::Arc};
 
 use libde265_sys::{de265_acceleration, de265_param};
 
-use crate::{error::Error, image::Image, De265};
+use crate::{De265, error::Error, image::Image};
 
 pub struct Decoder {
     inner: *mut libde265_sys::de265_decoder_context,
@@ -103,23 +103,29 @@ impl Decoder {
         unsafe { libde265_sys::de265_reset(self.inner) }
     }
 
-    pub fn peek_next_picture(&mut self) -> Option<Image> {
+    pub fn peek_next_picture(&mut self) -> Option<Image<'_>> {
         let inner = unsafe { libde265_sys::de265_peek_next_picture(self.inner) };
 
         if inner.is_null() {
             None
         } else {
-            Some(Image { inner })
+            Some(Image {
+                inner,
+                _m: PhantomData,
+            })
         }
     }
 
-    pub fn get_next_picture(&mut self) -> Option<Image> {
+    pub fn get_next_picture(&mut self) -> Option<Image<'_>> {
         let inner = unsafe { libde265_sys::de265_get_next_picture(self.inner) };
 
         if inner.is_null() {
             None
         } else {
-            Some(Image { inner })
+            Some(Image {
+                inner,
+                _m: PhantomData,
+            })
         }
     }
 
